@@ -3,11 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
     <title>Chenchu Venkata Lakshmi Jyothi | Software Engineer Portfolio</title>
-    <!-- Font Awesome Link for GitHub and Professional Icons -->
+    <meta name="description" content="Portfolio of Chenchu Venkata Lakshmi Jyothi, a Computer Science Honors student specializing in Full Stack Web Development and problem-solving.">
+    <meta name="keywords" content="Chenchu Venkata Lakshmi Jyothi, Software Engineer, Portfolio, Full Stack Developer, Computer Science, Java, DSA">
+    <meta name="author" content="Chenchu Venkata Lakshmi Jyothi">
+    
+    <meta property="og:title" content="Chenchu Venkata Lakshmi Jyothi | Portfolio">
+    <meta property="og:description" content="Computer Science student & Full Stack Developer profile. Check out my projects and competitive coding metrics.">
+    <meta property="og:type" content="website">
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
     <style>
-        /* Modern CSS Variables for easy color management */
+        /* Modern CSS Variables */
         :root {
             --primary: #0066cc;
             --primary-hover: #0052a3;
@@ -17,6 +26,16 @@
             --border-color: #e1e4e8;
             --text-main: #333333;
             --text-muted: #586069;
+        }
+
+        /* Dark Mode variables applied via JS */
+        [data-theme="dark"] {
+            --light-bg: #24292e;
+            --dark: #ffffff;
+            --text-main: #f8f9fa;
+            --text-muted: #c8d1d9;
+            --border-color: #444c56;
+            background-color: #1c2128;
         }
 
         /* Base Reset & Smooth Scrolling */
@@ -35,16 +54,15 @@
             color: var(--text-main);
             line-height: 1.6;
             background-color: #ffffff;
+            transition: background-color 0.3s ease, color 0.3s ease;
         }
 
-        /* Layout Container */
         .container {
             max-width: 1000px;
             margin: 0 auto;
             padding: 40px 20px;
         }
 
-        /* Section Global Styling */
         section {
             padding: 60px 0;
             border-bottom: 1px solid var(--border-color);
@@ -71,7 +89,24 @@
             border-radius: 2px;
         }
 
-        /* Header Section */
+        /* Theme Toggle Button Style */
+        .theme-toggle-container {
+            display: flex;
+            justify-content: flex-end;
+            margin-bottom: -40px;
+        }
+        
+        .theme-btn {
+            background: transparent;
+            border: 1px solid var(--border-color);
+            color: var(--dark);
+            padding: 8px 16px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.2s ease;
+        }
+
         header {
             padding: 80px 0 50px 0;
             border-bottom: 1px solid var(--border-color);
@@ -98,7 +133,6 @@
             margin-bottom: 30px;
         }
 
-        /* CTA Buttons */
         .cta-container {
             display: flex;
             gap: 15px;
@@ -154,11 +188,6 @@
             transform: translateY(-2px);
         }
 
-        .btn:active {
-            transform: translateY(0);
-        }
-
-        /* Quick Metrics Grid */
         .metrics-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -186,7 +215,6 @@
             color: var(--text-muted);
         }
 
-        /* Grid Configurations */
         .skills-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -215,6 +243,7 @@
 
         .tag {
             background: #ffffff;
+            color: #333333;
             padding: 5px 12px;
             font-size: 0.9rem;
             border-radius: 4px;
@@ -222,7 +251,6 @@
             font-weight: 500;
         }
 
-        /* Project Cards styling */
         .project-list {
             display: flex;
             flex-direction: column;
@@ -230,7 +258,7 @@
         }
 
         .project-card {
-            background: #ffffff;
+            background: transparent;
             border-radius: 8px;
         }
 
@@ -250,14 +278,13 @@
         }
 
         .project-github-link {
-            color: var(--secondary);
+            color: var(--primary);
             font-size: 1.2rem;
             transition: color 0.2s ease, transform 0.2s ease;
             display: inline-flex;
         }
 
         .project-github-link:hover {
-            color: var(--primary);
             transform: scale(1.1);
         }
 
@@ -274,11 +301,10 @@
 
         .project-bullets li {
             margin-bottom: 6px;
-            color: #24292e;
+            color: var(--text-main);
             font-size: 0.98rem;
         }
 
-        /* Lists for Achievements/Experience/Education */
         .info-list {
             list-style: none;
         }
@@ -307,7 +333,6 @@
             margin-bottom: 5px;
         }
 
-        /* Global Profile Links styling */
         .profile-links a, .contact-links a {
             color: var(--primary);
             text-decoration: none;
@@ -322,7 +347,47 @@
             margin-bottom: 12px;
         }
 
-        /* Footer */
+        /* Contact Form Styles */
+        .contact-layout {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            margin-top: 20px;
+        }
+
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+
+        .form-group label {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--dark);
+        }
+
+        .form-control {
+            padding: 10px 14px;
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            font-size: 1rem;
+            background-color: var(--light-bg);
+            color: var(--text-main);
+            outline: none;
+            transition: border-color 0.2s ease;
+        }
+
+        .form-control:focus {
+            border-color: var(--primary);
+        }
+
         footer {
             text-align: center;
             padding: 40px 0;
@@ -331,11 +396,11 @@
             border-top: 1px solid var(--border-color);
         }
 
-        /* Responsive Design tweaks */
         @media (max-width: 768px) {
             .header-title { font-size: 2.2rem; }
             .cta-container { flex-direction: column; }
             .btn { width: 100%; }
+            .contact-layout { grid-template-columns: 1fr; gap: 30px; }
         }
     </style>
 </head>
@@ -343,7 +408,10 @@
 
     <div class="container">
         
-        <!-- Header / Hero Section -->
+        <div class="theme-toggle-container">
+            <button class="theme-btn" id="themeToggleBtn"><i class="fa-solid fa-moon"></i> Toggle Dark Mode</button>
+        </div>
+
         <header>
             <h1 class="header-title">CHENCHU VENKATA LAKSHMI JYOTHI</h1>
             <div class="header-subtitle">Full Stack Developer | Computer Science (Honors) Student | Problem Solver</div>
@@ -351,16 +419,13 @@
                 I am a Computer Science (Honors) student with a strong interest in software development, web technologies, and problem-solving. I enjoy building responsive web applications, learning modern technologies, and applying my skills to create practical solutions. My goal is to grow as a Software Development Engineer and contribute to impactful technology-driven products.
             </p>
             
-            <!-- Quick Actions Buttons -->
             <div class="cta-container">
                 <a href="#projects" class="btn btn-primary">View Projects</a>
-                <!-- FIXED: Pointed directly to your exact verified file name layout -->
                 <a href="Jyothi_Chenchu Resume.pdf" download="Chenchu_Venkata_Lakshmi_Jyothi_Resume.pdf" class="btn btn-secondary">Download Resume</a>
                 <a href="#contact" class="btn btn-outline">Contact Me</a>
             </div>
         </header>
 
-        <!-- Highlights Metric Dashboard -->
         <section id="highlights">
             <h2>Quick Highlights</h2>
             <div class="metrics-grid">
@@ -383,7 +448,6 @@
             </div>
         </section>
 
-        <!-- Education Section -->
         <section id="education">
             <h2>Education</h2>
             <ul class="info-list">
@@ -398,7 +462,6 @@
             </ul>
         </section>
 
-        <!-- Technical Skills Section -->
         <section id="skills">
             <h2>Technical Skills</h2>
             <div class="skills-grid">
@@ -439,12 +502,10 @@
             </div>
         </section>
 
-        <!-- Projects Section -->
         <section id="projects">
             <h2>PROJECTS</h2>
             <div class="project-list">
                 
-                <!-- VisualSort Project -->
                 <div class="project-card">
                     <div class="project-header">
                         <h3 class="project-title">
@@ -458,12 +519,11 @@
                     <ul class="project-bullets">
                         <li>Built an interactive sorting visualizer demonstrating step-by-step execution of sorting algorithms.</li>
                         <li>Implemented Bubble Sort, Selection Sort, and Insertion Sort with visual highlighting of comparisons and swaps.</li>
-                        <li>Displayed horizontal array diagrams with index and pointer (i, j) tracking for conceptual clarity[cite: 1].</li>
+                        <li>Displayed horizontal array diagrams with index and pointer tracking for conceptual clarity.</li>
                         <li>Provided detailed step explanations to simplify learning for beginners.</li>
                     </ul>
                 </div>
 
-                <!-- LibraTrack Project -->
                 <div class="project-card">
                     <div class="project-header">
                         <h3 class="project-title">
@@ -481,7 +541,6 @@
                     </ul>
                 </div>
 
-                <!-- SpendWise Project -->
                 <div class="project-card">
                     <div class="project-header">
                         <h3 class="project-title">
@@ -502,64 +561,126 @@
             </div>
         </section>
 
-        <!-- Achievements and Certifications -->
         <section id="achievements">
             <h2>Achievements & Experience</h2>
             <ul class="info-list" style="list-style-type: '🏆 '; padding-left: 20px;">
-                <li style="margin-bottom: 12px; padding-left: 5px;">
-                    Solved 1000+ coding problems on CodeChef, demonstrating strong problem-solving and analytical skills.
-                </li>
-                <li style="margin-bottom: 12px; padding-left: 5px;">
-                    Maintaining an excellent CGPA of 9.50 / 10.00 in B.Tech Computer Science (Honors).
-                </li>
-                <li style="margin-bottom: 12px; padding-left: 5px;">
-                    Selected as a Trainee in Infosys Springboard Cohort-7 Program.
-                </li>
-                <li style="margin-bottom: 12px; padding-left: 5px;">
-                    Actively participating in competitive programming and strengthening Data Structures & Algorithms skills.
-                </li>
-                <li style="margin-bottom: 12px; padding-left: 5px;">
-                    Completed NPTEL Certification in Machine Learning and gained foundational knowledge of ML concepts.
-                </li>
-                <li style="margin-bottom: 12px; padding-left: 5px;">
-                    Completed NPTEL Certification in Quantum Computing and gained exposure to quantum algorithms.
-                </li>
-                <li style="margin-bottom: 12px; padding-left: 5px;">
-                    Participated in an Interactive Robotics Workshop conducted by ISTE Student Chapter and contributed to developing an automated driverless vehicle.
-                </li>
-                <li style="margin-bottom: 12px; padding-left: 5px;">
-                    Participated in Web Development Workshop conducted by Google Developer Groups to strengthen practical skills.
-                </li>
+                <li style="margin-bottom: 12px; padding-left: 5px;">Solved 1000+ coding problems on CodeChef, demonstrating strong problem-solving and analytical skills.</li>
+                <li style="margin-bottom: 12px; padding-left: 5px;">Maintaining an excellent CGPA of 9.50 / 10.00 in B.Tech Computer Science (Honors).</li>
+                <li style="margin-bottom: 12px; padding-left: 5px;">Selected as a Trainee in Infosys Springboard Cohort-7 Program.</li>
+                <li style="margin-bottom: 12px; padding-left: 5px;">Actively participating in competitive programming and strengthening Data Structures & Algorithms skills.</li>
+                <li style="margin-bottom: 12px; padding-left: 5px;">Completed NPTEL Certification in Machine Learning and gained foundational knowledge of ML concepts.</li>
+                <li style="margin-bottom: 12px; padding-left: 5px;">Completed NPTEL Certification in Quantum Computing and gained exposure to quantum algorithms.</li>
+                <li style="margin-bottom: 12px; padding-left: 5px;">Participated in an Interactive Robotics Workshop conducted by ISTE Student Chapter and contributed to developing an automated driverless vehicle.</li>
+                <li style="margin-bottom: 12px; padding-left: 5px;">Participated in Web Development Workshop conducted by Google Developer Groups to strengthen practical skills.</li>
             </ul>
         </section>
 
-        <!-- Verified Coding Profiles Section -->
         <section id="profiles">
             <h2>Coding Profiles & Networks</h2>
             <ul class="profile-links" style="list-style: none; padding-left: 0;">
-                <li>🚀 <strong>CodeChef Profile:</strong> <a href="https://www.codechef.com/users/shy_radiant_37" target="_blank" rel="noopener noreferrer">shy_radiant_37</a> — <em>1000+ Algorithmic Problems Solved</em></li>
-                <li>📦 <strong>GitHub Workspace:</strong> <a href="https://github.com/Jyothich-2006" target="_blank" rel="noopener noreferrer">Jyothich-2006</a> — <em>Source Repository Hosting[cite: 1]</em></li>
-                <li>🎯 <strong>HackerRank Profile:</strong> <a href="https://www.hackerrank.com/profile/Jyothi_2006" target="_blank" rel="noopener noreferrer">Jyothi_2006</a> — <em>Language Proficiency Tracks</em></li>
-                <li>👔 <strong>LinkedIn Connect:</strong> <a href="https://www.linkedin.com/in/jyothi-chenchu-0886a0330" target="_blank" rel="noopener noreferrer">Jyothi Chenchu</a> — <em>Professional Network[cite: 1]</em></li>
+                <li>🚀 <strong>CodeChef Profile:</strong> <a href="https://www.codechef.com/users/shy_radiant_37" target="_blank" rel="noopener noreferrer">shy_radiant_37</a></li>
+                <li>📦 <strong>GitHub Workspace:</strong> <a href="https://github.com/Jyothich-2006" target="_blank" rel="noopener noreferrer">Jyothich-2006</a></li>
+                <li>🎯 <strong>HackerRank Profile:</strong> <a href="https://www.hackerrank.com/profile/Jyothi_2006" target="_blank" rel="noopener noreferrer">Jyothi_2006</a></li>
+                <li>👔 <strong>LinkedIn Connect:</strong> <a href="https://www.linkedin.com/in/jyothi-chenchu-0886a0330" target="_blank" rel="noopener noreferrer">Jyothi Chenchu</a></li>
             </ul>
         </section>
 
-        <!-- Contact Section -->
         <section id="contact">
             <h2>Contact & Connect</h2>
-            <ul class="contact-links" style="list-style: none; padding-left: 0;">
-                <li>📧 <strong>Email Address:</strong> <a href="mailto:chenchujyothi3@gmail.com">chenchujyothi3@gmail.com</a></li>
-                <li>📱 <strong>Phone Number:</strong> <a href="tel:+918688065141">+91 8688065141</a></li>
-                <li>📍 <strong>Current Location:</strong> Singarayakonda, Andhra Pradesh, India</li>
-            </ul>
+            <div class="contact-layout">
+                <div>
+                    <ul class="contact-links" style="list-style: none; padding-left: 0;">
+                        <li>📧 <strong>Email Address:</strong> <a href="mailto:chenchujyothi3@gmail.com">chenchujyothi3@gmail.com</a></li>
+                        <li>📱 <strong>Phone Number:</strong> <a href="tel:+918688065141">+91 8688065141</a></li>
+                        <li>📍 <strong>Current Location:</strong> Singarayakonda, Andhra Pradesh, India</li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <!-- Form updated to target Web3Forms action and added the access key token line -->
+                    <form class="contact-form" id="portfolioForm" action="https://api.web3forms.com/submit" method="POST">
+                        <input type="hidden" name="access_key" value="44f281f7-0dcd-46c3-b9c0-beb2378f7307">
+                        
+                        <div class="form-group">
+                            <label for="name">Your Name</label>
+                            <input type="text" id="name" name="name" class="form-control" placeholder="Jane Doe" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Your Email</label>
+                            <input type="email" id="email" name="email" class="form-control" placeholder="jane@example.com" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" name="message" rows="4" class="form-control" placeholder="Hey, saw your portfolio..." required></textarea>
+                        </div>
+                        <button type="submit" id="submitBtn" class="btn btn-primary" style="padding: 10px;">Send Message</button>
+                    </form>
+                </div>
+            </div>
         </section>
 
-        <!-- Footer -->
         <footer>
             <p>&copy; 2026 Chenchu Venkata Lakshmi Jyothi. Built with Code and Creativity.</p>
         </footer>
 
     </div>
 
+    <script>
+        // Interactive Feature: Light/Dark Mode Toggle
+        const themeToggleBtn = document.getElementById('themeToggleBtn');
+        themeToggleBtn.addEventListener('click', () => {
+            const currentTheme = document.documentElement.getAttribute('data-theme');
+            if (currentTheme === 'dark') {
+                document.documentElement.removeAttribute('data-theme');
+                themeToggleBtn.innerHTML = '<i class="fa-solid fa-moon"></i> Toggle Dark Mode';
+            } else {
+                document.documentElement.setAttribute('data-theme', 'dark');
+                themeToggleBtn.innerHTML = '<i class="fa-solid fa-sun"></i> Toggle Light Mode';
+            }
+        });
+
+        // Contact Form Feature: Live AJAX Web3Forms Handler
+        const form = document.getElementById('portfolioForm');
+        const submitBtn = document.getElementById('submitBtn');
+
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Visual feedback during submission
+            submitBtn.disabled = true;
+            submitBtn.innerText = "Sending...";
+
+            const formData = new FormData(form);
+            const object = Object.fromEntries(formData);
+            const json = JSON.stringify(object);
+
+            fetch('https://api.web3forms.com/submit', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json'
+                },
+                body: json
+            })
+            .then(async (response) => {
+                let res = await response.json();
+                if (response.status == 200) {
+                    alert(`Thank you, ${object.name}! Your message has been sent directly to my inbox.`);
+                    form.reset();
+                } else {
+                    alert("Something went wrong: " + res.message);
+                }
+            })
+            .catch(error => {
+                console.error(error);
+                alert("Hit a snag sending the message. Please check your network connectivity.");
+            })
+            .then(() => {
+                // Restore button state
+                submitBtn.disabled = false;
+                submitBtn.innerText = "Send Message";
+            });
+        });
+    </script>
 </body>
 </html>
