@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chenchu Venkata Lakshmi Jyothi | Software Engineer Portfolio</title>
+    <!-- Font Awesome Link for GitHub and Professional Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Modern CSS Variables for easy color management */
+        :root {
+            --primary: #0066cc;
+            --primary-hover: #0052a3;
+            --dark: #1a1e22;
+            --secondary: #24292e;
+            --light-bg: #f8f9fa;
+            --border-color: #e1e4e8;
+            --text-main: #333333;
+            --text-muted: #586069;
+        }
+
+        /* Base Reset & Smooth Scrolling */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: var(--text-main);
+            line-height: 1.6;
+            background-color: #ffffff;
+        }
+
+        /* Layout Container */
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        /* Section Global Styling */
+        section {
+            padding: 60px 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        section:last-child {
+            border-bottom: none;
+        }
+
+        h2 {
+            font-size: 2rem;
+            color: var(--dark);
+            margin-bottom: 25px;
+            position: relative;
+        }
+
+        h2::after {
+            content: '';
+            display: block;
+            width: 50px;
+            height: 4px;
+            background-color: var(--primary);
+            margin-top: 8px;
+            border-radius: 2px;
+        }
+
+        /* Header Section */
+        header {
+            padding: 80px 0 50px 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .header-title {
+            font-size: 2.8rem;
+            color: var(--dark);
+            line-height: 1.2;
+            margin-bottom: 10px;
+        }
+
+        .header-subtitle {
+            font-size: 1.3rem;
+            color: var(--primary);
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        .header-tagline {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            max-width: 800px;
+            margin-bottom: 30px;
+        }
+
+        /* CTA Buttons */
+        .cta-container {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 24px;
+            font-size: 1rem;
+            font-weight: 600;
+            text-decoration: none;
+            border-radius: 6px;
+            transition: all 0.3s ease;
+            text-align: center;
+            cursor: pointer;
+        }
+
+        .btn-primary {
+            background-color: var(--primary);
+            color: #ffffff;
+            border: 2px solid var(--primary);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--primary-hover);
+            border-color: var(--primary-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 102, 204, 0.3);
+        }
+
+        .btn-secondary {
+            background-color: var(--secondary);
+            color: #ffffff;
+            border: 2px solid var(--secondary);
+        }
+
+        .btn-secondary:hover {
+            background-color: var(--dark);
+            border-color: var(--dark);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(36, 41, 46, 0.3);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            color: var(--primary);
+            border: 2px solid var(--primary);
+        }
+
+        .btn-outline:hover {
+            background-color: rgba(0, 102, 204, 0.05);
+            transform: translateY(-2px);
+        }
+
+        .btn:active {
+            transform: translateY(0);
+        }
+
+        /* Quick Metrics Grid */
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .metric-card {
+            background-color: var(--light-bg);
+            padding: 20px;
+            border-radius: 8px;
+            border-left: 4px solid var(--primary);
+            text-align: center;
+        }
+
+        .metric-val {
+            font-size: 1.6rem;
+            font-weight: bold;
+            color: var(--dark);
+            margin-bottom: 5px;
+        }
+
+        .metric-label {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+
+        /* Grid Configurations */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+        }
+
+        .skill-category {
+            background: var(--light-bg);
+            padding: 20px;
+            border-radius: 8px;
+        }
+
+        .skill-category h3 {
+            font-size: 1.1rem;
+            color: var(--dark);
+            margin-bottom: 12px;
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 5px;
+        }
+
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .tag {
+            background: #ffffff;
+            padding: 5px 12px;
+            font-size: 0.9rem;
+            border-radius: 4px;
+            border: 1px solid var(--border-color);
+            font-weight: 500;
+        }
+
+        /* Project Cards styling */
+        .project-list {
+            display: flex;
+            flex-direction: column;
+            gap: 35px;
+        }
+
+        .project-card {
+            background: #ffffff;
+            border-radius: 8px;
+        }
+
+        .project-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 4px;
+        }
+
+        .project-title {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 1.4rem;
+            color: var(--dark);
+            font-weight: 700;
+        }
+
+        .project-github-link {
+            color: var(--secondary);
+            font-size: 1.2rem;
+            transition: color 0.2s ease, transform 0.2s ease;
+            display: inline-flex;
+        }
+
+        .project-github-link:hover {
+            color: var(--primary);
+            transform: scale(1.1);
+        }
+
+        .project-tech-label {
+            font-size: 1rem;
+            color: var(--text-main);
+            margin-bottom: 12px;
+        }
+
+        .project-bullets {
+            padding-left: 20px;
+            list-style-type: disc;
+        }
+
+        .project-bullets li {
+            margin-bottom: 6px;
+            color: #24292e;
+            font-size: 0.98rem;
+        }
+
+        /* Lists for Achievements/Experience/Education */
+        .info-list {
+            list-style: none;
+        }
+
+        .info-item {
+            margin-bottom: 20px;
+            padding-left: 15px;
+            border-left: 2px solid var(--border-color);
+        }
+
+        .info-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--dark);
+        }
+
+        .info-subtitle {
+            font-size: 1rem;
+            color: var(--primary);
+            font-weight: 500;
+        }
+
+        .info-meta {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            margin-bottom: 5px;
+        }
+
+        /* Global Profile Links styling */
+        .profile-links a, .contact-links a {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .profile-links a:hover, .contact-links a:hover {
+            text-decoration: underline;
+        }
+
+        .profile-links li, .contact-links li {
+            margin-bottom: 12px;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 40px 0;
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            border-top: 1px solid var(--border-color);
+        }
+
+        /* Responsive Design tweaks */
+        @media (max-width: 768px) {
+            .header-title { font-size: 2.2rem; }
+            .cta-container { flex-direction: column; }
+            .btn { width: 100%; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        
+        <!-- Header / Hero Section -->
+        <header>
+            <h1 class="header-title">CHENCHU VENKATA LAKSHMI JYOTHI</h1>
+            <div class="header-subtitle">Full Stack Developer | Computer Science (Honors) Student | Problem Solver</div>
+            <p class="header-tagline">
+                I am a Computer Science (Honors) student with a strong interest in software development, web technologies, and problem-solving. I enjoy building responsive web applications, learning modern technologies, and applying my skills to create practical solutions. My goal is to grow as a Software Development Engineer and contribute to impactful technology-driven products.
+            </p>
+            
+            <!-- Quick Actions Buttons -->
+            <div class="cta-container">
+                <a href="#projects" class="btn btn-primary">View Projects</a>
+                <!-- FIXED: Pointed directly to your exact verified file name layout -->
+                <a href="Jyothi_Chenchu Resume.pdf" download="Chenchu_Venkata_Lakshmi_Jyothi_Resume.pdf" class="btn btn-secondary">Download Resume</a>
+                <a href="#contact" class="btn btn-outline">Contact Me</a>
+            </div>
+        </header>
+
+        <!-- Highlights Metric Dashboard -->
+        <section id="highlights">
+            <h2>Quick Highlights</h2>
+            <div class="metrics-grid">
+                <div class="metric-card">
+                    <div class="metric-val">9.47/10</div>
+                    <div class="metric-label">Current B.Tech CGPA</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-val">1000+</div>
+                    <div class="metric-label">CodeChef Problems Solved</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-val">3+</div>
+                    <div class="metric-label">Web Projects Developed</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-val">Cohort-7</div>
+                    <div class="metric-label">Infosys Springboard Trainee</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Education Section -->
+        <section id="education">
+            <h2>Education</h2>
+            <ul class="info-list">
+                <li class="info-item" style="border-left-color: var(--primary);">
+                    <div class="info-title">Shri Vishnu Engineering College for Women</div>
+                    <div class="info-subtitle">Bachelor of Technology (B.Tech) in Computer Science (Honors)</div>
+                    <div class="info-meta">Timeline: 2024 – 2028 | <strong>CGPA: 9.47 / 10.00</strong></div>
+                    <p style="margin-top: 8px;">
+                        <strong>Key Coursework:</strong> Data Structures & Algorithms, Database Management Systems (DBMS), Operating Systems (OS), Java Programming, Web Development.
+                    </p>
+                </li>
+            </ul>
+        </section>
+
+        <!-- Technical Skills Section -->
+        <section id="skills">
+            <h2>Technical Skills</h2>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h3>Programming Languages</h3>
+                    <div class="skill-tags">
+                        <span class="tag">Java</span>
+                        <span class="tag">C</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3>Frontend Development</h3>
+                    <div class="skill-tags">
+                        <span class="tag">HTML</span>
+                        <span class="tag">CSS</span>
+                        <span class="tag">JavaScript</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3>Tools & Platforms</h3>
+                    <div class="skill-tags">
+                        <span class="tag">Git</span>
+                        <span class="tag">GitHub</span>
+                        <span class="tag">VS Code</span>
+                        <span class="tag">MySQL</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3>Core Concepts</h3>
+                    <div class="skill-tags">
+                        <span class="tag">Data Structures & Algorithms</span>
+                        <span class="tag">Object-Oriented Programming (OOP)</span>
+                        <span class="tag">Database Management Systems</span>
+                        <span class="tag">Operating Systems</span>
+                        <span class="tag">Software Engineering</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects">
+            <h2>PROJECTS</h2>
+            <div class="project-list">
+                
+                <!-- VisualSort Project -->
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3 class="project-title">
+                            VisualSort 
+                            <a href="https://github.com/Jyothich-2006/VisualSort" target="_blank" rel="noopener noreferrer" class="project-github-link" title="View Source Code">
+                                <i class="fa-brands fa-github"></i>
+                            </a>
+                        </h3>
+                    </div>
+                    <div class="project-tech-label"><strong>Tech Stack:</strong> HTML, CSS, JavaScript</div>
+                    <ul class="project-bullets">
+                        <li>Built an interactive sorting visualizer demonstrating step-by-step execution of sorting algorithms.</li>
+                        <li>Implemented Bubble Sort, Selection Sort, and Insertion Sort with visual highlighting of comparisons and swaps.</li>
+                        <li>Displayed horizontal array diagrams with index and pointer (i, j) tracking for conceptual clarity[cite: 1].</li>
+                        <li>Provided detailed step explanations to simplify learning for beginners.</li>
+                    </ul>
+                </div>
+
+                <!-- LibraTrack Project -->
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3 class="project-title">
+                            LibraTrack 
+                            <a href="https://github.com/Jyothich-2006/Library-Management-System" target="_blank" rel="noopener noreferrer" class="project-github-link" title="View Source Code">
+                                <i class="fa-brands fa-github"></i>
+                            </a>
+                        </h3>
+                    </div>
+                    <div class="project-tech-label"><strong>Tech Stack:</strong> HTML, CSS, JavaScript</div>
+                    <ul class="project-bullets">
+                        <li>Developed a web-based library management system to organize and manage book records efficiently.</li>
+                        <li>Implemented issue and return tracking to monitor availability in real-time.</li>
+                        <li>Designed a user-friendly interface to simplify library operations.</li>
+                    </ul>
+                </div>
+
+                <!-- SpendWise Project -->
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3 class="project-title">
+                            SpendWise 
+                            <a href="https://github.com/Jyothich-2006/Expense-Tracker" target="_blank" rel="noopener noreferrer" class="project-github-link" title="View Source Code">
+                                <i class="fa-brands fa-github"></i>
+                            </a>
+                        </h3>
+                    </div>
+                    <div class="project-tech-label"><strong>Tech Stack:</strong> HTML, CSS, JavaScript</div>
+                    <ul class="project-bullets">
+                        <li>Built a web-based expense tracking application to manage daily transactions.</li>
+                        <li>Calculated and displayed monthly and total expenses dynamically.</li>
+                        <li>Created a clean interface to improve personal budgeting experience.</li>
+                    </ul>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Achievements and Certifications -->
+        <section id="achievements">
+            <h2>Achievements & Experience</h2>
+            <ul class="info-list" style="list-style-type: '🏆 '; padding-left: 20px;">
+                <li style="margin-bottom: 12px; padding-left: 5px;">
+                    Solved 1000+ coding problems on CodeChef, demonstrating strong problem-solving and analytical skills.
+                </li>
+                <li style="margin-bottom: 12px; padding-left: 5px;">
+                    Maintaining an excellent CGPA of 9.50 / 10.00 in B.Tech Computer Science (Honors).
+                </li>
+                <li style="margin-bottom: 12px; padding-left: 5px;">
+                    Selected as a Trainee in Infosys Springboard Cohort-7 Program.
+                </li>
+                <li style="margin-bottom: 12px; padding-left: 5px;">
+                    Actively participating in competitive programming and strengthening Data Structures & Algorithms skills.
+                </li>
+                <li style="margin-bottom: 12px; padding-left: 5px;">
+                    Completed NPTEL Certification in Machine Learning and gained foundational knowledge of ML concepts.
+                </li>
+                <li style="margin-bottom: 12px; padding-left: 5px;">
+                    Completed NPTEL Certification in Quantum Computing and gained exposure to quantum algorithms.
+                </li>
+                <li style="margin-bottom: 12px; padding-left: 5px;">
+                    Participated in an Interactive Robotics Workshop conducted by ISTE Student Chapter and contributed to developing an automated driverless vehicle.
+                </li>
+                <li style="margin-bottom: 12px; padding-left: 5px;">
+                    Participated in Web Development Workshop conducted by Google Developer Groups to strengthen practical skills.
+                </li>
+            </ul>
+        </section>
+
+        <!-- Verified Coding Profiles Section -->
+        <section id="profiles">
+            <h2>Coding Profiles & Networks</h2>
+            <ul class="profile-links" style="list-style: none; padding-left: 0;">
+                <li>🚀 <strong>CodeChef Profile:</strong> <a href="https://www.codechef.com/users/shy_radiant_37" target="_blank" rel="noopener noreferrer">shy_radiant_37</a> — <em>1000+ Algorithmic Problems Solved</em></li>
+                <li>📦 <strong>GitHub Workspace:</strong> <a href="https://github.com/Jyothich-2006" target="_blank" rel="noopener noreferrer">Jyothich-2006</a> — <em>Source Repository Hosting[cite: 1]</em></li>
+                <li>🎯 <strong>HackerRank Profile:</strong> <a href="https://www.hackerrank.com/profile/Jyothi_2006" target="_blank" rel="noopener noreferrer">Jyothi_2006</a> — <em>Language Proficiency Tracks</em></li>
+                <li>👔 <strong>LinkedIn Connect:</strong> <a href="https://www.linkedin.com/in/jyothi-chenchu-0886a0330" target="_blank" rel="noopener noreferrer">Jyothi Chenchu</a> — <em>Professional Network[cite: 1]</em></li>
+            </ul>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact">
+            <h2>Contact & Connect</h2>
+            <ul class="contact-links" style="list-style: none; padding-left: 0;">
+                <li>📧 <strong>Email Address:</strong> <a href="mailto:chenchujyothi3@gmail.com">chenchujyothi3@gmail.com</a></li>
+                <li>📱 <strong>Phone Number:</strong> <a href="tel:+918688065141">+91 8688065141</a></li>
+                <li>📍 <strong>Current Location:</strong> Singarayakonda, Andhra Pradesh, India</li>
+            </ul>
+        </section>
+
+        <!-- Footer -->
+        <footer>
+            <p>&copy; 2026 Chenchu Venkata Lakshmi Jyothi. Built with Code and Creativity.</p>
+        </footer>
+
+    </div>
+
+</body>
+</html>
